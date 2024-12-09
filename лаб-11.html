@@ -1,0 +1,571 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Кітап интернет-дүкені</title> 
+  <style>
+   * {  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+}  
+
+body {  
+  font-family: Arial, sans-serif;  
+  line-height: 1.6;  
+  background: #f8f8f8;  
+  color: #333;  
+}  
+
+header {  
+  background: #0044cc;  
+  color: #fff;  
+  padding: 10px 20px;  
+  display: flex;  
+  justify-content: space-between;  
+  align-items: center;  
+}  
+
+header h1 {  
+  font-size: 1.5rem;  
+}  
+
+header nav ul {  
+  list-style: none;  
+  display: flex;  
+  gap: 15px;  
+}  
+
+header nav a {  
+  color: #fff;  
+  text-decoration: none;  
+  font-weight: bold;  
+}  
+
+.banner {  
+  text-align: center;  
+  padding: 20px;  
+  background: url('banner.jpg') no-repeat center/cover;  
+  color: #ea9898;  
+}  
+
+.banner button {  
+  padding: 10px 20px;  
+  background: #ff6600;  
+  color: #e9dada;  
+  border: none;  
+  cursor: pointer;  
+}  
+
+.main {  
+  display: flex;  
+  gap: 20px;  
+  padding: 20px;  
+}  
+
+.featured .books {  
+  display: flex;  
+  gap: 20px;  
+}  
+
+.book {  
+  background: #fff;  
+  padding: 15px;  
+  text-align: center;  
+  border: 1px solid #ccc;  
+  border-radius: 5px;  
+}  
+
+footer {  
+  text-align: center;  
+  padding: 10px;  
+  background: #333;  
+  color: #fff;  
+}
+.book-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .book-item {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px;
+            padding: 10px;
+            width: 200px;
+            text-align: center;
+            background: #f9f9f9;
+            transition: transform 0.2s;
+        }
+
+        .book-item:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+
+        img.p  {
+            max-width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+
+       
+        .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: #145ad2;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    .dropdown-content a {
+      color: rgb(213, 193, 193);
+      padding: 10px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .dropdown-content a:hover {
+      background-color: #5b1a1a;
+    }
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    
+      padding: 10px 20px;
+    }
+    .header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+
+    }
+
+
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    button {
+      margin: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Сайдбар */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -300px; /* Сол жақтан шығып кетуі үшін өзгерту */
+      width: 300px;
+      height: 100%;
+      background-color: hsl(0, 29%, 64%);
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5); /* Сол жаққа көлеңке қосу */
+      transition: transform 0.3s ease-in-out;
+      z-index: 1000;
+      padding: 20px;
+    }
+
+    .sidebar.active {
+      transform: translateX(300px); /* Сол жаққа жылжып шығу */
+    }
+
+    /* Қараңғы фон */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgb(0, 0, 0,0.5);
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+      z-index: 999;
+    }
+
+    .overlay.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+
+
+ 
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin: 10px 0;
+      opacity: 0.7; /* Әдеттегі жағдайда прозрачность */
+      transition: opacity 0.3s ease; /* Өтпелі эффект */
+    }
+
+    img:hover {
+      opacity: 1; /* Тышқанды суретке апарғанда, толық көріну */
+    }   
+   
+
+        /* Әлеуметтік медиа батырмалары */
+        .social-buttons {
+      display: none; /* Алғашқыда көрінбейді */
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      bottom: 80px; /* Бөлісу батырмасының үстінде орналасады */
+      right: 20px;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #f1f1f1;
+      border-radius: 5px;
+      padding: 8px 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .social-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .social-icon {
+      font-size: 18px;
+      color: #fff;
+      padding: 5px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .facebook {
+      background-color: #4267B2;
+    }
+
+    .twitter {
+      background-color: #1DA1F2;
+    }
+
+    .instagram {
+      background-color: #E1306C;
+    }
+
+    .linkedin {
+      background-color: #0077B5;
+    }
+
+    /* Бөлісу батырмасы */
+    .floating-btn {
+      width: 60px;
+      height: 60px;
+      background-color: #00AEEF;
+      color: #fff;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      outline: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .floating-btn:hover {
+      background-color: #008ecf;
+    }
+
+    /* Жебе белгісі стилі */
+    .arrow-icon {
+      font-size: 28px;
+      font-weight: bold;
+      transform: rotate(180deg); /* Жебе бағытын өзгертеді */
+    }
+
+
+    .progress-bar-container {
+      margin-bottom: 20px;
+      background-color: #e9ecef;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+      height: 20px;
+      position: relative;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0; /* Бастапқы ұзындық - 0 */
+      transition: width 2s ease; /* Анимация ұзақтығы */
+    }
+
+    .progress-bar.blue {
+      background-color: #007bff;
+    }
+
+    .progress-bar.green {
+      background-color: #28a745;
+    }
+
+    .progress-bar.cyan {
+      background-color: #17a2b8;
+    }
+
+    .progress-bar.yellow {
+      background-color: #ffc107;
+    }
+
+    .progress-bar.red {
+      background-color: #dc3545;
+    }
+  
+</style>
+  <link rel="stylesheet" href="style.css">  
+</head>  
+<body>  
+  <!-- Header -->  
+  <header>
+
+    <button id="menuButton">Меню</button>
+    <div id="sidebar" class="sidebar">
+      <button id="closeButton">✖</button>
+      <ul>
+        <li>  <a href=" https://kitapal.kz/catalog/36">  Детектив </a></li>
+        <li> <a href=" https://kitapal.kz/catalog/27 ">  Аудио кітаптар</a></li>
+        <li> <a href="https://kitapal.kz/articles "> Мақалалар</a> </li>
+        <li> <a href="file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/keh3.html"> КЕрі байланыс</a> </li>
+        <li> <a href="file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/zj.html? "> Қазақша кітаптар</a> </li>
+
+      </ul>
+    </div>
+    <div id="overlay" class="overlay"></div>
+  
+    <script>
+      // Элементтерді таңдау
+      const menuButton = document.getElementById('menuButton');
+      const closeButton = document.getElementById('closeButton');
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+  
+      // Сайдбарды ашу
+      menuButton.addEventListener('click', () => {
+        sidebar.classList.add('active');
+        overlay.classList.add('active');
+      });
+  
+      // Сайдбарды жабу
+      closeButton.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+  
+      // Қараңғы фонды басқанда жабу
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('active');
+        overlay.classList.remove('active');
+      });
+    </script>
+    <div class="logo">  
+      <h1>Book Haven</h1>  
+    </div> 
+    <nav>  
+      <ul>  
+        <li><a href="#">Басты бет</a></li>  
+        <li><a href="#">Кітаптар</a></li>  
+        <li><a href=" file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/май%20ктап.html    ">Акциялар</a></li>  
+        <li><a href="#">Контактілер</a></li>  
+        <li><a href=" file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/333.html  ">Тіркелу</a></li>   
+      
+
+      
+        <nav>
+          <div class="dropdown">
+            <a href="#"> Ашылмалы тізім</a>
+            <div class="dropdown-content">
+              <a href="file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/ктап%20жалгас.html  "> Әр түрлі кітаптар</a>
+              <a href="file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/мекен.html">Мекенжай</a>
+              <a href=" file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/bv.html  ">  Рейтинг</a>
+              <a href=" file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/onl.html "> Онлайн кітаптар</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </nav>  
+  </ul>
+  </header>
+  
+ 
+
+
+  <section class="banner">
+    <div class="A">
+        Сәлеметсіз бе!
+    </div>
+   
+    <p>Сіздерді біздің дүкенімізде ең жақсы кітаптармен таныстыруға шақырамыз!</p>
+    <img src="file:///C:/Users/pc/Documents/Изображение%20WhatsApp%202024-11-25%20в%2008.31.10_d479dcaf.jpg" alt="Кітап дүкені">
+  </section>
+
+  <!-- Banner Section -->  
+  <section class="banner">  
+    <h2>Сіздің сүйікті кітаптарыңыз бір қадам жақын!</h2>  
+    <p>Біз әлем әдебиетінің үздік туындыларын ұсынамыз. Бүгін тапсырыс беріп, тегін жеткізілім алыңыз!</p>  
+    <button>  <a href="file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/дж.html" >  Көбірек  білу </a></button>  
+  </section>  
+
+  <section id="books">
+    <h2>Біздің кітаптар</h2>
+    <div class="book-list">
+        <div class="book-item">
+            <h3>Қан мен тер</h3>
+            <img src="https://cdn-kaspi.kz/shop/medias/sys_master/images/images/hd5/h69/10438863552542/n-rpejisov-k-an-men-ter-26025765-1.jpg" alt="Қан мен тер кітабы">
+            <p>Бағасы: 2500₸</p>
+        </div>
+        <div class="book-item">
+            <h3>Кітап "Екінші болма"</h3>
+            <img src="https://frankfurt.apollo.olxcdn.com/v1/files/my2ljfdne0u22-KZ/image;s=1000x667" alt="Екінші болма Кітапы">
+            <p>Бағасы: 3850₸</p>
+        </div>
+        <div class="book-item">
+            <h3>Кітап "Махаббат, қызық мол жылдар"</h3>
+            <img src="https://cdn1.ozone.ru/s3/multimedia-h/6309728789.jpg" alt="Махаббат, қызық мол жылдар Кітапы">
+            <p>Бағасы: 3000₸</p>
+        </div>
+        <div class="book-item">
+            <h3>Кітап "Ай мен Айша"</h3>
+            <img src="https://cdn1.ozone.ru/s3/multimedia-2/6812778674.jpg" alt="ай мен Айша Кітапы">
+            <p>Бағасы: 2450₸</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- News Section -->  
+    <aside class="news">  
+      <h3>Жаңалықтар</h3>  
+      <p>Жаңа кітаптар келіп түсті! Акциялар туралы толық ақпаратты біздің <a href=" file:///C:/Users/pc/source/repos/ConsoleApplication1/ConsoleApplication1/май%20ктап.html ">блогымыздан</a> қараңыз.</p>  
+    </aside>  
+  </main>  
+
+
+
+  <!-- Әлеуметтік медиа батырмалары -->
+  <div class="social-buttons">
+    <div class="social-button">
+      <div class="social-icon facebook">F</div>
+      <a href="https://facebook.com" target="_blank">Facebook</a>
+    </div>
+    <div class="social-button">
+      <div class="social-icon twitter">T</div>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+    </div>
+    <div class="social-button">
+      <div class="social-icon instagram">I</div>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+    <div class="social-button">
+      <div class="social-icon linkedin">in</div>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+    </div>
+  </div>
+
+  <!-- Негізгі бөлісу батырмасы -->
+  <button id="shareButton" class="floating-btn">
+    <span class="arrow-icon">&lt;</span>
+  </button>
+
+  <script>
+    const shareButton = document.getElementById('shareButton');
+    const socialButtons = document.querySelector('.social-buttons');
+
+    // «Бөлісу» батырмасын басқанда батырмаларды көрсету/жасыру
+    shareButton.addEventListener('click', () => {
+      const isVisible = socialButtons.style.display === 'flex';
+      socialButtons.style.display = isVisible ? 'none' : 'flex';
+    });
+  </script>
+
+
+
+
+<div class="progress-bar-container">
+  <div class="progress-bar blue"></div>
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar green"></div>
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar cyan"></div>
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar yellow"></div>
+</div>
+<div class="progress-bar-container">
+  <div class="progress-bar red"></div>
+</div>
+
+<script>
+  // Барлық progress-bar элементтерін табу
+  const progressBars = document.querySelectorAll('.progress-bar');
+
+  // Әр progress-bar үшін анимация бастау және тоқтату
+  progressBars.forEach((bar, index) => {
+    // Тышқан көрсеткіші контейнерге келгенде анимацияны бастау
+    bar.parentElement.addEventListener('mouseenter', () => {
+      bar.style.width = "100%"; // Барлық жолақтарды соңына дейін толтыру
+    });
+
+    // Тышқан көрсеткіші контейнерден кеткенде анимацияны тоқтату
+    bar.parentElement.addEventListener('mouseleave', () => {
+      bar.style.width = "0"; // Жолақты бастапқы күйге келтіру
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+  <!-- Footer -->  
+  <footer>  
+    <p>&copy; 2024 BookStore. Барлық құқықтар қорғалған.</p>  
+    <p><a href="#">Құпиялылық саясаты</a> | <a href="#">Қолдану ережелері</a></p>  
+  </footer>  
+</body>  
+</html>
